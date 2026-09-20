@@ -128,8 +128,201 @@
       <section id="cobertura">
         <!-- PENDIENTE -->
       </section>
-      <section id="contacto">
-        <!-- PENDIENTE -->
+      <section id="contacto" class="seccion-contacto">
+        <div class="contacto-contenedor">
+          <header class="contacto-encabezado">
+            <h2>Contacto</h2>
+            <p>
+              Estamos listos para convertirnos en el aliado estratégico que tu
+              práctica veterinaria necesita. Ponte en contacto con nosotros para
+              cotizaciones, solicitudes de catálogo o información de productos.
+            </p>
+          </header>
+
+          <div class="contacto-grid">
+            <!-- Columna Información de Contacto Directo y Canales -->
+            <div class="contacto-info">
+              <h3>Atención Personalizada</h3>
+              <p>
+                Comunícate directamente con nuestro equipo de ventas y soporte para recibir asistencia:
+              </p>
+
+              <address class="datos-contacto">
+                <div class="contacto-item">
+                  <span class="icono" aria-hidden="true">&#128222;</span>
+                  <div>
+                    <strong>Teléfono / WhatsApp:</strong>
+                    <a
+                      href="tel:+527151461718"
+                      aria-label="Llamar al +52 715 146 1718"
+                      >+52 715 146 1718</a
+                    >
+                  </div>
+                </div>
+
+                <div class="contacto-item">
+                  <span class="icono" aria-hidden="true">&#128231;</span>
+                  <div>
+                    <strong>Correo Electrónico:</strong>
+                    <a href="mailto:distribuidorahuesos@gmail.com"
+                      >distribuidorahuesos@gmail.com</a
+                    >
+                  </div>
+                </div>
+              </address>
+
+              <!-- Botón de Acción WhatsApp -->
+              <div class="whatsapp-accion">
+                <a
+                  href="https://wa.me/527151461718?text=Hola,%20quisiera%20solicitar%20informaci%C3%B3n%20sobre%20sus%20productos%20y%20servicios."
+                  class="btn-whatsapp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Contactar por WhatsApp"
+                >
+                  Enviar WhatsApp Directo
+                </a>
+              </div>
+            </div>
+
+            <!-- Columna Formulario de Contacto -->
+            <div class="contacto-formulario-wrapper">
+              <form action="#" method="POST" class="formulario-contacto">
+                <fieldset>
+                  <legend>Envíanos un mensaje</legend>
+
+                  <div class="campo">
+                    <label for="nombre"
+                      >Nombre completo
+                      <span class="requerido" aria-hidden="true">*</span></label
+                    >
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      placeholder="Ej. Dr. Juan Pérez"
+                      required
+                      aria-required="true"
+                    />
+                  </div>
+
+                  <div class="campo">
+                    <label for="empresa">Nombre de la Clínica o Empresa</label>
+                    <input
+                      type="text"
+                      id="empresa"
+                      name="empresa"
+                      placeholder="Ej. Clínica Veterinaria Huesos"
+                    />
+                  </div>
+
+                  <div class="campo">
+                    <label for="tipo-cliente"
+                      >Tipo de Establecimiento
+                      <span class="requerido" aria-hidden="true">*</span></label
+                    >
+                    <select
+                      id="tipo-cliente"
+                      name="tipo_cliente"
+                      required
+                      aria-required="true"
+                    >
+                      <option value="" disabled selected>
+                        Selecciona una opción
+                      </option>
+                      <option value="veterinaria">Veterinaria</option>
+                      <option value="hospital">Hospital Veterinario</option>
+                      <option value="tienda-mascotas">
+                        Tienda de Mascotas / Pet Shop
+                      </option>
+                      <option value="estetica">Estética Animal</option>
+                      <option value="distribuidor">Distribuidor</option>
+                      <option value="productor">
+                        Ganadero / Productor Pecuario
+                      </option>
+                      <option value="otro">Otro</option>
+                    </select>
+                  </div>
+
+                  <div class="campo-grupo">
+                    <div class="campo">
+                      <label for="email"
+                        >Correo Electrónico
+                        <span class="requerido" aria-hidden="true"
+                          >*</span
+                        ></label
+                      >
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="correo@ejemplo.com"
+                        required
+                        aria-required="true"
+                      />
+                    </div>
+
+                    <div class="campo">
+                      <label for="telefono"
+                        >Teléfono de Contacto
+                        <span class="requerido" aria-hidden="true"
+                          >*</span
+                        ></label
+                      >
+                      <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        placeholder="10 dígitos"
+                        required
+                        aria-required="true"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="campo">
+                    <label for="mensaje"
+                      >¿En qué podemos ayudarte?
+                      <span class="requerido" aria-hidden="true">*</span></label
+                    >
+                    <textarea
+                      id="mensaje"
+                      name="mensaje"
+                      rows="5"
+                      placeholder="Escribe aquí tu consulta o los productos requeridos..."
+                      required
+                      aria-required="true"
+                    ></textarea>
+                  </div>
+
+                  <div class="campo campo-checkbox">
+                    <input
+                      type="checkbox"
+                      id="privacidad"
+                      name="privacidad"
+                      required
+                      aria-required="true"
+                    />
+                    <label for="privacidad">
+                      Acepto el
+                      <a
+                        href="/politica-de-privacidad"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Aviso de Privacidad</a
+                      >
+                      <span class="requerido" aria-hidden="true">*</span>
+                    </label>
+                  </div>
+
+                  <button type="submit" class="btn-enviar">
+                    Enviar Mensaje
+                  </button>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
     <footer class="pie-pagina">
@@ -139,7 +332,6 @@
           <h3>Huesos — Distribuidora Veterinaria</h3>
           <p>Aliados estratégicos en salud animal.</p>
 
-          <!-- Información de contacto semántica -->
           <address>
             <p>
               Email:
