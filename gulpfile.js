@@ -50,17 +50,22 @@ function versionWebp() {
 function watchArchivos() {
 	watch(paths.scss, css);
 	watch(paths.js, javascript);
-	watch(paths.imagenes, imagenes);
-	watch(paths.imagenes, versionWebp);
+	// Ejecuta las imágenes en serie al detectar cambios para evitar conflictos
+	watch(paths.imagenes, series(imagenes, versionWebp));
 }
 
 exports.css = css;
 exports.watchArchivos = watchArchivos;
-exports.default = parallel(
-	css,
-	javascript,
+
+// Se procesan las imágenes secuencialmente (series) antes de iniciar las demás tareas
+exports.default = series(
 	imagenes,
 	versionWebp,
-	watchArchivos,
+	parallel(css, javascript, watchArchivos)
 );
-exports.build = parallel(css, javascript, imagenes, versionWebp);
+
+exports.build = series(
+	imagenes,
+	versionWebp,
+	parallel(css, javascript)
+);
