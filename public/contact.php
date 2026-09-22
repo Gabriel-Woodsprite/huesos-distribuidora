@@ -23,7 +23,7 @@ $resend = Resend::client($apiKey);
 $resend->emails->send([
 	'from' => $emailFrom,
 	'to' => ['l23650343@zitacuaro.tecnm.mx'], // Proximo Cambio: $_POST['correo']
-	'subject' => 'Testing No.1',
+	'subject' => 'Testing No.2',
 	'html' => '<p>' . htmlspecialchars($_POST['mensaje']) . '</p>',
 ]);
 header('Location: /gracias.html');
