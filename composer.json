@@ -1,0 +1,15 @@
+{
+    "name": "gab-sye/huesos-distribuidora",
+    "description": "distribuidora, freelance, veterinaria",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Gabriel Gutierrez",
+            "email": "L23650343@zitacuaro.tecnm.mx"
+        }
+    ],
+    "require": {
+        "resend/resend-php": "^1.15",
+        "vlucas/phpdotenv": "^5.7"
+    }
+}
