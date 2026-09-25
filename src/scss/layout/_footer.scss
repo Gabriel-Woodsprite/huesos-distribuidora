@@ -1,0 +1,100 @@
+/* ===================================================
+   DISTRIBUCIÓN FOOTER - MOBILE FIRST
+   =================================================== */
+
+.pie-pagina {
+  /* Mismo contenedor y márgenes laterales que el Header y Secciones */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 1.5rem 1.5rem;
+
+  /* Separador con el contenido superior */
+  border-top: 1px solid #000; 
+
+  .footer-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Cajas/Bloques de contenido */
+  .footer-bloque {
+    border: 1px dashed #888; // Borde de referencia visual
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    p, address, ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    address {
+      font-style: normal;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+
+  /* Redes sociales en móvil */
+  .redes-sociales {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  /* Copyright inferior */
+  .footer-copyright {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ccc;
+    text-align: center;
+
+    small {
+      display: block;
+    }
+  }
+}
+
+/* ===================================================
+   DISTRIBUCIÓN FOOTER - DESKTOP (min-width: 1024px)
+   =================================================== */
+
+@media (min-width: 1024px) {
+  .pie-pagina {
+    padding: 4rem 2rem 2rem 2rem;
+
+    .footer-contenido {
+      display: grid;
+      /* 4 Columnas: La primera más ancha para la información de marca */
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .footer-bloque {
+      padding: 1rem;
+      /* Mantiene la misma altura visual o alineación superior */
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    .footer-copyright {
+      margin-top: 3rem;
+    }
+  }
+}

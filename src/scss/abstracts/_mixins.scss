@@ -1,0 +1,14 @@
+// media query breakpoints
+@use 'variables' as *;
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}

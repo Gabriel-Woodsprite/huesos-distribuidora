@@ -1,0 +1,41 @@
+@use '../abstracts/mixins' as *;
+
+.nav-menu {
+  // --- Comportamiento Desktop ---
+  @include desktop {
+    position: static; // Deja de ser modal/overlay
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    display: flex !important; // Siempre visible
+    padding: 0;
+
+    // Ocultar cabecera del modal (X y Título) y redes sociales del menú
+    &__header,
+    &__socials {
+      display: none;
+    }
+
+    &__list {
+      flex-direction: row; // Enlaces en horizontal
+      gap: 2rem;
+
+      a {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .nav-menu__socials {
+    margin-top: auto;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+
+    /* Separación mayor EXCLUSIVA para el header nav */
+    .redes-sociales {
+      gap: 3.5rem !important; /* Ajusta este valor si los quieres aún más lejos */
+    }
+  }
+}
