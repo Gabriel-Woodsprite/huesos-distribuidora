@@ -1,0 +1,44 @@
+.hero {
+  display: flex;
+  flex-direction: column; // Móvil: 1 sola columna apilada
+  padding: 2rem 1.5rem;
+  gap: 2rem;
+  width: 100%;
+
+  &__contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  &__imagen {
+    width: 100%;
+    
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+}
+
+/* --- Desktop --- */
+@media (min-width: 1024px) {
+  .hero {
+    flex-direction: row; // Desktop: 2 columnas lado a lado
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+
+    &__contenido {
+      width: 48%; // Columna izquierda
+    }
+
+    &__imagen {
+      width: 48%; // Columna derecha
+    }
+  }
+}

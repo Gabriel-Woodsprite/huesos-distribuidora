@@ -1,0 +1,178 @@
+/* ===================================================
+   DISTRIBUCIÓN CONTACTO - MOBILE FIRST
+   =================================================== */
+
+.seccion-contacto {
+  /* Contenedor alineado con Header y Secciones */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+
+  /* Encabezado de Sección */
+  .contacto-encabezado {
+    border: 1px dashed #888; // Referencia visual
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    h2 {
+      margin-top: 0;
+      font-size: 2rem;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  /* Grid Principal (Móvil: apilado vertical) */
+  .contacto-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Columna 1: Información de Contacto */
+  .contacto-info {
+    border: 1px solid #000; // Referencia visual
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    h3 {
+      margin-top: 0;
+    }
+
+    .datos-contacto {
+      font-style: normal;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+
+      .contacto-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+
+        .icono {
+          font-size: 1.2rem;
+          line-height: 1;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 0.25rem;
+        }
+      }
+    }
+
+    .whatsapp-accion {
+      margin-top: auto; // En desktop empuja el botón al fondo
+
+      .btn-whatsapp {
+        display: block;
+        text-align: center;
+        padding: 0.75rem 1rem;
+        border: 1px solid #000;
+        text-decoration: none;
+      }
+    }
+  }
+
+  /* Columna 2: Formulario */
+  .contacto-formulario-wrapper {
+    border: 1px solid #000; // Referencia visual
+    padding: 1.5rem;
+
+    form fieldset {
+      border: 1px dashed #888;
+      padding: 1.5rem;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+
+      legend {
+        padding: 0 0.5rem;
+        font-weight: bold;
+      }
+    }
+
+    .campo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.6rem;
+        box-sizing: border-box;
+      }
+
+      textarea {
+        resize: vertical;
+      }
+    }
+
+    /* Grupo de Email y Teléfono (Móvil: apilado) */
+    .campo-grupo {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* Checkbox de Privacidad */
+    .campo-checkbox {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+
+      label {
+        font-weight: normal;
+      }
+    }
+
+    .btn-enviar {
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+  }
+}
+
+/* ===================================================
+   DISTRIBUCIÓN CONTACTO - DESKTOP (min-width: 1024px)
+   =================================================== */
+
+@media (min-width: 1024px) {
+  .seccion-contacto {
+    padding: 4rem 2rem;
+
+    /* Disposición a 2 columnas principales */
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr; // Info a la izq, Formulario más amplio a la der
+      gap: 2.5rem;
+      align-items: stretch; // Ambas columnas igualan su altura
+    }
+
+    .contacto-formulario-wrapper {
+      /* Pasa el grupo de Email y Teléfono a 2 columnas en paralelo */
+      .campo-grupo {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+    }
+  }
+}

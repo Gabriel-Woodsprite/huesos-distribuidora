@@ -1,3 +1,15 @@
-h1 {
-	background-color: aquamarine;
-}
+// main.scss
+@use 'base/reset';
+@use 'base/layout';
+
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+@use 'components/redes-sociales';
+
+@use 'layout/header';
+@use 'layout/navegacion';
+@use 'layout/hero';
+@use 'layout/nosotros';
+@use 'layout/footer';
+@use 'layout/contacto';

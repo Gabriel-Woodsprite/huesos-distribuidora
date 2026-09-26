@@ -1,0 +1,120 @@
+/* ===================================================
+   MOBILE FIRST (Estilos base para Pantallas Pequeñas)
+   =================================================== */
+
+.nav-contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  width: 100%;
+}
+.nav-bar {
+  display: flex;
+  flex-direction: row;          
+  justify-content: space-between; 
+  align-items: center;          
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;                   
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0;                  
+  line-height: 1;
+}
+
+// MENÚ OVERLAY (Móvil)
+.nav-menu {
+  display: none; // 1. OCULTO POR DEFECTO EN MÓVIL
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff; 
+  z-index: 1000;
+  padding: 2rem 1.5rem;
+
+  // Cuando JS le añade la clase .is-active se muestra
+  &.is-active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-close {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.2rem;
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+/* ===================================================
+   DESKTOP (A partir de 1024px de ancho)
+   =================================================== */
+
+@media (min-width: 1024px) {
+  .nav-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 2rem;
+  }
+
+  // Ocultar el botón
+  .nav-toggle {
+    display: none !important;
+  }
+
+  // Desplegar el menú en la barra superior en horizontal
+  .nav-menu {
+    display: flex !important; // Siempre visible en escritorio
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+
+    // Oculta la 'X', título modal y redes del menú en desktop
+    &__header,
+    &__socials {
+      display: none !important;
+    }
+
+    &__list {
+      flex-direction: row; // Coloca los enlaces uno al lado del otro
+      gap: 2.5rem;
+      font-size: 1rem;
+    }
+  }
+}

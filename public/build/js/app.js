@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".nav-toggle"),t=document.querySelector(".nav-close"),c=document.querySelector(".nav-menu");e&&e.addEventListener("click",()=>{c.classList.add("is-active")}),t&&t.addEventListener("click",()=>{c.classList.remove("is-active")})});
