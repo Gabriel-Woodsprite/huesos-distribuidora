@@ -1,0 +1,189 @@
+/* ===================================================
+   DISTRIBUCIÓN SECCIÓN PRODUCTOS 
+   =================================================== */
+
+.productos-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    border: 1px dashed #888; 
+    padding: 1.5rem;
+
+    h2 {
+      margin-top: 0;
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      margin-bottom: 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  /* 2. Grid de Categorías Principales */
+  .categories-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+
+    .category-card {
+      border: 1px solid #000; 
+      padding: 1.75rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+
+      .category-icon {
+        width: 60px;
+        height: 60px;
+        border: 1px dashed #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+      }
+
+      h3 {
+        margin: 0;
+        font-size: 1.25rem;
+      }
+
+      p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  /* 3. Bloque de Laboratorios / Marcas */
+  .brands-wrapper {
+    border: 1px solid #000; 
+    padding: 2rem 1.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+    }
+
+    /* Red de marcas adaptativa  */
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+
+      .brand-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.85rem;
+        border: 1px dashed #888;
+        font-weight: bold;
+        font-size: 0.95rem;
+      }
+    }
+  }
+
+  /* 4. Llamado a la Acción (CTA Catálogo y Cotización) */
+  .catalog-cta {
+    border: 1px solid #000;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Botones CTA en Móvil (Apilados) */
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: stretch;
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.85rem 1.5rem;
+        text-decoration: none;
+        border: 1px solid #000;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+}
+
+/* ===================================================
+   DISTRIBUCIÓN SECCIÓN PRODUCTOS - TABLET / DESKTOP
+   =================================================== */
+
+/* Ajuste intermedio (Tablets: min-width: 768px) */
+@media (min-width: 768px) {
+  .productos-section {
+    .brands-wrapper .brands-grid {
+      grid-template-columns: repeat(4, 1fr); 
+    }
+
+    .catalog-cta .cta-buttons {
+      flex-direction: row; 
+      justify-content: center;
+
+      .btn {
+        min-width: 220px;
+      }
+    }
+  }
+}
+
+/* Ajuste escritorio (Desktop: min-width: 1024px) */
+@media (min-width: 1024px) {
+  .productos-section {
+    padding: 4rem 2rem;
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+
+      .category-card {
+        align-items: flex-start;
+        text-align: left;
+
+        .category-icon {
+          align-self: flex-start;
+        }
+      }
+    }
+
+    .brands-wrapper .brands-grid {
+      grid-template-columns: repeat(7, 1fr);
+      gap: 1.25rem;
+    }
+  }
+}

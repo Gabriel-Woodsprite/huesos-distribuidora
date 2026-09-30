@@ -162,11 +162,138 @@ $apiKey = getenv('RESEND_API_KEY');
 				</div>
 			</div>
 		</section>
-		<section id="productos">
-			<!-- PENDIENTE -->
+		<section id="productos" class="productos-section">
+			<div class="container">
+
+				<!-- 1. Encabezado de la Sección -->
+				<div class="section-title text-center">
+					<h2>Nuestras Líneas de Productos</h2>
+					<p>Distribución mayorista de insumos veterinarios, medicamentos y equipamiento para clínicas,
+						hospitales y tiendas especializadas.</p>
+				</div>
+
+				<!-- 2. Categorías / Líneas Principales -->
+				<div class="categories-grid">
+					<div class="category-card">
+						<div class="category-icon"><!-- Icono Farmacéutico --></div>
+						<h3>Farmacéuticos y Biológicos</h3>
+						<p>Vacunas, antibióticos, anestésicos, antiparasitarios y tratamientos dermatológicos de uso
+							clínico.</p>
+					</div>
+
+					<div class="category-card">
+						<div class="category-icon"><!-- Icono Nutrición --></div>
+						<h3>Nutrición y Suplementos</h3>
+						<p>Alimento especializado, premios funcionales, suplementos vitamínicos y reguladores de salud
+							animal.</p>
+					</div>
+
+					<div class="category-card">
+						<div class="category-icon"><!-- Icono Diagnóstico/Equipo --></div>
+						<h3>Equipo Médico y Diagnóstico</h3>
+						<p>Pruebas rápidas de diagnóstico, reactivos de laboratorio, material quirúrgico y accesorios de
+							manejo.</p>
+					</div>
+				</div>
+
+				<!-- 3. Laboratorios / Marcas Destacadas -->
+				<div class="brands-wrapper text-center">
+					<h3>Laboratorios y Marcas con las que Trabajamos</h3>
+					<p>Contamos con el respaldo de marcas líderes en el sector veterinario:</p>
+
+					<div class="brands-grid">
+						<!-- Puedes colocar los logos o nombres de las marcas clave del inventario -->
+						<span class="brand-item">Zoetis</span>
+						<span class="brand-item">Mindray</span>
+						<span class="brand-item">Virbac</span>
+						<span class="brand-item">Holliday</span>
+						<span class="brand-item">Waggys</span>
+						<span class="brand-item">Back 2 Nature</span>
+						<span class="brand-item">Liceaga</span>
+					</div>
+				</div>
+
+				<!-- 4. Descarga de Catálogo y Cotización (CTA) -->
+				<div class="catalog-cta text-center">
+					<h3>¿Deseas consultar la lista completa de precios o un producto en específico?</h3>
+					<p>Descarga nuestro catálogo actualizado o ponte en contacto directo con uno de nuestros asesores.
+					</p>
+					<div class="cta-buttons">
+						<a href="docs/catalogo-distribuidora-huesos.pdf" class="btn btn-primary" download
+							target="_blank">
+							Descargar Catálogo PDF
+						</a>
+						<a href="https://wa.me/527151461718" class="btn btn-success" target="_blank">
+							Cotizar por WhatsApp
+						</a>
+					</div>
+				</div>
+
+			</div>
 		</section>
-		<section id="cobertura">
-			<!-- PENDIENTE -->
+		<section id="cobertura" class="cobertura-section">
+			<div class="container">
+
+				<!-- Encabezado de la Sección -->
+				<div class="section-title text-center">
+					<h2>Nuestra Cobertura</h2>
+					<p>Llegamos a veterinarias, clínicas, estéticas y hospitales animales en la región y todo México.
+					</p>
+				</div>
+
+				<!-- Contenido Principal (Tarjetas + Mapa) -->
+				<div class="cobertura-grid">
+
+					<!-- Lista de Puntos de Cobertura -->
+					<div class="cobertura-detalles">
+
+						<div class="cobertura-card card-regional">
+							<h3>Presencia Regional Directa</h3>
+							<p>Atención personalizada y distribución prioritaria en nuestra ciudad sede y estados
+								colindantes.</p>
+						</div>
+
+						<div class="cobertura-card card-nacional">
+							<h3>Envíos a Todo México</h3>
+							<p>Contamos con logística y alianzas de envío para abastecer tus productos veterinarios en
+								cualquier punto de la República Mexicana.</p>
+						</div>
+
+						<div class="cobertura-card card-mayoristas">
+							<h3>Atención a Mayoristas y Clínicas</h3>
+							<p>Suministro constante para veterinarias, hospitales veterinarios, tiendas de mascotas y
+								distribuidores.</p>
+						</div>
+
+						<!-- Botón de Acción -->
+						<div class="cobertura-cta">
+							<a href="https://wa.me/527151461718?text=Hola,%20quisiera%20consultar%20la%20cobertura%20y%20tiempos%20de%20entrega%20en%20mi%20zona"
+								target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+								<svg class="icono-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+									<path
+										d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z" />
+								</svg>
+								Consultar cobertura de mi ciudad
+							</a>
+						</div>
+
+					</div>
+
+					<!-- Mapa de Cobertura / Ubicación -->
+					<div class="cobertura-mapa">
+						<h3>Mapa de Distribución y Ubicación</h3>
+						<div class="mapa-contenedor">
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.63!2d-100.35!3d19.43!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnvsDE1JzQ4LjAiTiAxMDDCsDIxJzAwLjAiVw!5e0!3m2!1ses-419!2smx!4v1600000000000!5m2!1es-419!2smx"
+								width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+								title="Mapa de Cobertura Distribuidora Veterinaria Huesos">
+							</iframe>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
 		</section>
 		<section id="contacto" class="seccion-contacto">
 			<div class="contacto-contenedor">
@@ -190,7 +317,7 @@ $apiKey = getenv('RESEND_API_KEY');
 
 						<address class="datos-contacto">
 							<div class="contacto-item">
-								<span class="icono" aria-hidden="true">&#128222;</span>
+								<!-- <span class="icono" aria-hidden="true">&#128222;</span> -->
 								<div>
 									<strong>Teléfono / WhatsApp:</strong>
 									<a href="tel:+527151461718" aria-label="Llamar al +52 715 146 1718">+52 715 146
@@ -199,7 +326,7 @@ $apiKey = getenv('RESEND_API_KEY');
 							</div>
 
 							<div class="contacto-item">
-								<span class="icono" aria-hidden="true">&#128231;</span>
+								<!-- <span class="icono" aria-hidden="true">&#128231;</span> -->
 								<div>
 									<strong>Correo Electrónico:</strong>
 									<a href="mailto:distribuidorahuesos@gmail.com">distribuidorahuesos@gmail.com</a>
@@ -364,12 +491,16 @@ $apiKey = getenv('RESEND_API_KEY');
 					</li>
 				</ul>
 			</div>
+		</div>
 
-			<!-- Pie inferior: Copyright -->
-			<div class="footer-copyright">
-				<small>&copy; 2026 Huesos — Distribuidora Veterinaria. Todos los derechos
-					reservados.</small>
-			</div>
+		<!-- Pie inferior: Aviso legal y Copyright -->
+		<div class="footer-copyright">
+			<p class="legal-notice">
+				<small>Las marcas registradas y logotipos de terceros pertenecen a sus respectivos dueños y se utilizan
+					exclusivamente de carácter nominativo e informativo sobre la oferta de distribución.</small>
+			</p>
+			<small>&copy; 2026 Huesos — Distribuidora Veterinaria. Todos los derechos reservados.</small>
+		</div>
 	</footer>
 	<script src="build/js/app.js"></script>
 </body>

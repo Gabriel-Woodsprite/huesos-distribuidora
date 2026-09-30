@@ -3,12 +3,9 @@
    =================================================== */
 
 .pie-pagina {
-  /* Mismo contenedor y márgenes laterales que el Header y Secciones */
   max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 1.5rem 1.5rem 1.5rem;
-
-  /* Separador con el contenido superior */
   border-top: 1px solid #000; 
 
   .footer-contenido {
@@ -17,9 +14,8 @@
     gap: 2rem;
   }
 
-  /* Cajas/Bloques de contenido */
   .footer-bloque {
-    border: 1px dashed #888; // Borde de referencia visual
+    border: 1px dashed #888;
     padding: 1.25rem;
     display: flex;
     flex-direction: column;
@@ -50,19 +46,24 @@
     }
   }
 
-  /* Redes sociales en móvil */
   .redes-sociales {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  /* Copyright inferior */
   .footer-copyright {
     margin-top: 2rem;
     padding-top: 1.5rem;
     border-top: 1px solid #ccc;
     text-align: center;
+
+    .legal-notice {
+      margin: 0 auto 0.75rem auto;
+      max-width: 850px; 
+      line-height: 1.4;
+      opacity: 0.8; 
+    }
 
     small {
       display: block;
@@ -80,7 +81,6 @@
 
     .footer-contenido {
       display: grid;
-      /* 4 Columnas: La primera más ancha para la información de marca */
       grid-template-columns: 1.5fr 1fr 1fr 1fr;
       gap: 2.5rem;
       align-items: start;
@@ -88,7 +88,6 @@
 
     .footer-bloque {
       padding: 1rem;
-      /* Mantiene la misma altura visual o alineación superior */
       height: 100%;
       box-sizing: border-box;
     }
