@@ -1,17 +1,20 @@
-// main.scss
-@use 'base/reset';
-@use 'base/layout';
+// 1. Abstracts 
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
 
-@use 'components/buttons';
-@use 'components/cards';
-@use 'components/forms';
+// 2. Base 
+@use 'base/reset';
+@use 'base/globales';
+
+// 3. Components
 @use 'components/redes-sociales';
 
+// 4. Layout 
 @use 'layout/header';
 @use 'layout/navegacion';
 @use 'layout/hero';
 @use 'layout/nosotros';
-@use 'layout/footer';
-@use 'layout/contacto';
 @use 'layout/productos';
 @use 'layout/cobertura';
+@use 'layout/contacto';
+@use 'layout/footer';
