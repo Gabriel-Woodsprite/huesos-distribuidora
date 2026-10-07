@@ -1,20 +1,21 @@
-// 1. Abstracts 
-@use 'abstracts/variables';
-@use 'abstracts/mixins';
+// 1. Abstracts
+@use "abstracts/variables";
+@use "abstracts/mixins";
 
-// 2. Base 
-@use 'base/reset';
-@use 'base/globales';
+// 2. Base
+@use "base/reset";
+@use "base/globales";
 
 // 3. Components
-@use 'components/redes-sociales';
+@use "components/redes-sociales";
+@use "components/validacion";
 
-// 4. Layout 
-@use 'layout/header';
-@use 'layout/navegacion';
-@use 'layout/hero';
-@use 'layout/nosotros';
-@use 'layout/productos';
-@use 'layout/cobertura';
-@use 'layout/contacto';
-@use 'layout/footer';
+// 4. Layout
+@use "layout/header";
+@use "layout/navegacion";
+@use "layout/hero";
+@use "layout/nosotros";
+@use "layout/productos";
+@use "layout/cobertura";
+@use "layout/contacto";
+@use "layout/footer";

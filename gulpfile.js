@@ -5,11 +5,14 @@ const postcss = require("gulp-postcss");
 const sourcemaps = require("gulp-sourcemaps");
 const cssnano = require("cssnano");
 const concat = require("gulp-concat");
-const terser = require("gulp-terser-js");
+// const terser = require("gulp-terser-js");
 const rename = require("gulp-rename");
 const imagemin = require("gulp-imagemin"); // Minificar imagenes
 const cache = require("gulp-cache");
 const webp = require("gulp-webp");
+const { rollup } = require("rollup");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
+const terser = require("@rollup/plugin-terser");
 
 const paths = {
 	scss: "src/scss/**/*.scss",
@@ -30,11 +33,18 @@ function css() {
 	);
 }
 
-function javascript() {
-	return src(paths.js)
-		.pipe(terser())
-		.pipe(sourcemaps.write("."))
-		.pipe(dest("public/build/js"));
+async function javascript() {
+	const bundle = await rollup({
+		input: "src/js/app.js",
+		plugins: [nodeResolve()],
+	});
+
+	await bundle.write({
+		file: "public/build/js/main.js",
+		format: "iife",
+		sourcemap: true,
+		plugins: [terser()],
+	});
 }
 
 function imagenes() {
@@ -61,11 +71,7 @@ exports.watchArchivos = watchArchivos;
 exports.default = series(
 	imagenes,
 	versionWebp,
-	parallel(css, javascript, watchArchivos)
+	parallel(css, javascript, watchArchivos),
 );
 
-exports.build = series(
-	imagenes,
-	versionWebp,
-	parallel(css, javascript)
-);
+exports.build = series(imagenes, versionWebp, parallel(css, javascript));
