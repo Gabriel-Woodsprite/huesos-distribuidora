@@ -1,0 +1,93 @@
+/* ===================================================
+   ESTILOS TIPOGRÁFICOS Y GLOBALES DE COLOR
+   =================================================== */
+
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+
+  scroll-behavior: smooth;
+  
+  /* Desplazamiento compensado para que el header fijo no tape los títulos de sección */
+  scroll-padding-top: 65px; // Ajusta según la altura de tu navegación
+
+  /* Accesibilidad: Desactiva la animación si el usuario prefiere movimiento reducido */
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  font-family: $font-base;
+  font-weight: $fw-regular;
+  font-size: $font-size-md;
+  line-height: 1.6;
+  background-color: $bg-main;
+  color: $text-main;
+  margin: 0;
+}
+
+/* Encabezados principales */
+h1, h2, h3, h4, h5, h6,
+.font-heading {
+  font-family: $font-heading;
+  font-weight: $fw-bold;
+  line-height: 1.25;
+  color: $text-heading;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: $font-size-2xl;
+  font-weight: $fw-bold;
+}
+
+h2 {
+  font-size: $font-size-xl;
+  font-weight: $fw-semibold;
+}
+
+h3 {
+  font-size: $font-size-lg;
+  font-weight: $fw-semibold;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Enlaces globales */
+a {
+  color: $brand-primary;
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: color.scale($brand-primary, $lightness: -10%);
+  }
+}
+
+/* Forzar tipografía en controles interactivos */
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+/* Escala responsiva para pantallas grandes */
+@media (min-width: 1024px) {
+  h1 {
+    font-size: $font-size-3xl;
+  }
+
+  h2 {
+    font-size: $font-size-2xl;
+  }
+
+  h3 {
+    font-size: $font-size-xl;
+  }
+}
