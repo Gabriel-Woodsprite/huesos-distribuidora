@@ -1,41 +1,215 @@
+@use '../abstracts/variables' as *;
 @use '../abstracts/mixins' as *;
 
-.nav-menu {
-  // --- Comportamiento Desktop ---
-  @include desktop {
-    position: static; // Deja de ser modal/overlay
+/* ===================================================
+   HEADER & NAVEGACIÓN (COMPACTO Y RESPONSIVE)
+   =================================================== */
+
+.nav-contenedor {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.25rem; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;          
+  justify-content: space-between; 
+  align-items: center;          
+  width: 100%;
+}
+
+/* --- LOGOTIPO BASE --- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+
+  &__imagen {
+    height: 36px; // Logo compacto en móvil
     width: auto;
-    height: auto;
-    background-color: transparent;
-    display: flex !important; // Siempre visible
-    padding: 0;
+    max-width: 150px;
+    object-fit: contain;
+  }
 
-    // Ocultar cabecera del modal (X y Título) y redes sociales del menú
-    &__header,
-    &__socials {
-      display: none;
+  &__nombre {
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: $text-heading;
+  }
+  
+  /* Variante para el header interno del menú modal */
+  &--menu {
+    .logo__imagen {
+      height: 36px;
     }
+    .logo__nombre {
+      font-size: 1.15rem;
+    }
+  }
+}
 
-    &__list {
-      flex-direction: row; // Enlaces en horizontal
-      gap: 2rem;
+.nav-toggle {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0;                  
+  line-height: 1;
+}
 
-      a {
-        font-size: 1rem;
-        font-weight: 500;
+/* ===================================================
+   MENÚ DESPLEGABLE CON ANIMACIÓN (MÓVIL)
+   =================================================== */
+
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  padding: 1.5rem 2rem 2.5rem;
+  box-sizing: border-box;
+  background-color: #ffffff; // Se reemplazará por $bg-surface al aplicar paleta
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* Transición fluida (Desplazamiento suave + Fade) */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Cabecera del Menú Móvil */
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+    .nav-close {
+      background: none;
+      border: none;
+      font-size: 1.75rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease;
+
+      &:hover {
+        transform: rotate(90deg);
       }
     }
   }
 
-  .nav-menu__socials {
-    margin-top: auto;
-    padding: 2rem 0;
+  /* Lista de Enlaces en Móvil */
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 0;
+    margin: auto 0;
+
+    a {
+      font-size: 1.35rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: transform 0.2s ease, color 0.2s ease;
+      display: inline-block;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  /* Redes Sociales en la parte inferior */
+  &__socials {
     display: flex;
     justify-content: center;
+    padding-top: 1rem;
+  }
+}
 
-    /* Separación mayor EXCLUSIVA para el header nav */
-    .redes-sociales {
-      gap: 3.5rem !important; /* Ajusta este valor si los quieres aún más lejos */
+/* ===================================================
+   ESCRITORIO (min-width: 1024px)
+   =================================================== */
+
+@media (min-width: 1024px) {
+  .nav-contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.75rem 2rem;
+  }
+
+  .nav-bar {
+    width: auto;
+  }
+
+  .logo {
+    &__imagen {
+      height: 44px; // Ajustado de 60px a 44px
+      max-width: 200px;
+    }
+
+    &__nombre {
+      font-size: 1.3rem; // Ajustado de 1.6rem a 1.3rem
+    }
+  }
+
+  .nav-toggle {
+    display: none !important;
+  }
+
+  /* Reset del menú desplegable para pantalla grande */
+  .nav-menu {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    padding: 0;
+    flex-direction: row;
+
+    &__header,
+    &__socials {
+      display: none !important;
+    }
+
+    &__list {
+      flex-direction: row;
+      gap: 1.8rem; // Ajustado espacio entre enlaces de 2.5rem a 1.8rem
+      margin: 0;
+
+      a {
+        font-size: 0.95rem; // Tamaño de fuente estilizado de 1rem a 0.95rem
+
+        &:hover {
+          transform: none;
+        }
+      }
     }
   }
 }

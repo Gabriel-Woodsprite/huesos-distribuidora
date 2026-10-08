@@ -1,13 +1,12 @@
 /* ===================================================
-   COMPONENTE: REDES SOCIALES 
+   COMPONENTE: REDES SOCIALES
    =================================================== */
 
-.footer-bloque .redes-sociales,
 .redes-sociales {
-  display: flex !important;
-  flex-direction: row !important; 
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 1.25rem; 
+  gap: 1.25rem;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -40,12 +39,8 @@
   }
 }
 
-/* ===================================================
-   DESKTOP (min-width: 1024px)
-   =================================================== */
-
+/* Estado Desktop (min-width: 1024px) */
 @media (min-width: 1024px) {
-  .footer-bloque .redes-sociales,
   .redes-sociales {
     .red-social {
       background: transparent;

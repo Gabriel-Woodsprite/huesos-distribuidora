@@ -1,5 +1,70 @@
-// media query breakpoints
+/* ===================================================
+   BREAKPOINTS
+   =================================================== */
 $bp-tablet: 768px;
 $bp-desktop: 1024px;
 
+/* --------------------------------------------------------------------------------------- */
 
+/* ===================================================
+   VARIABLES DE TIPOGRAFÍA
+   =================================================== */
+
+// Familias Tipográficas
+$font-base: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+// Pesos Tipográficos
+$fw-regular: 400;   // Roboto
+$fw-medium: 500;    // Roboto / Poppins
+$fw-semibold: 600;  // Poppins
+$fw-bold: 700;      // Roboto / Poppins
+
+// Escala de Tamaños Tipográficos (Base 16px = 1rem)
+$font-size-xs: 0.75rem;   // 12px (Notas legales, footers discretos)
+$font-size-sm: 0.875rem;  // 14px (Botones secundarios, badges)
+$font-size-md: 1rem;      // 16px (Cuerpo de texto / Párrafos base)
+$font-size-lg: 1.125rem;  // 18px (Subtítulos de tarjetas, items resaltados)
+$font-size-xl: 1.35rem;   // 21.6px (Títulos h3)
+$font-size-2xl: 1.75rem;  // 28px (Títulos h2 en móvil)
+$font-size-3xl: 2.25rem;  // 36px (Títulos h2 en escritorio / Hero)
+
+/* --------------------------------------------------------------------------------------- */
+
+/* ===================================================
+   VARIABLES DE COLOR 
+   =================================================== */
+
+// 1. PALETA DE MARCA
+$c-cream:            #F7DFC7;
+$c-gold:             #F2B55D;
+$c-amber:            #D98408;
+$c-teal:             #5B9891;
+
+// Soporte Neutro
+$c-white:            #ffffff;
+$c-dark:             #1e293b;
+$c-gray:            #64748b;
+
+// 2. USO SEMÁNTICO
+$brand-primary:      $c-amber;   // Botones principales, enlaces e interacción
+$brand-secondary:    $c-gold;    // Hovers, badges, destacados secundarios
+$brand-accent:       $c-teal;    // Detalles médicos, íconos y banners
+
+$bg-main:            $c-cream;   // Fondo general de la web
+$bg-surface:         $c-white;   // Fondo de tarjetas y modales
+$bg-alt:             $c-teal;    // Fondo alternativo para secciones de contraste
+
+$text-heading:       $c-dark;    // Títulos y encabezados
+$text-main:          $c-dark;    // Cuerpo de texto
+$text-muted:         $c-gray;    // Legal, subtítulos y fechas
+$text-inverse:       $c-white;   // Texto sobre fondos oscuros/teal
+
+$border-color:       rgba($c-amber, 0.25); // Bordes y separadores
+
+// 3. CANALES DE CONTACTO Y REDES SOCIALES
+$whatsapp-color:     #25d366;    // Verde oficial de WhatsApp
+$facebook-color:     #1877f2;    // Azul oficial de Facebook
+$instagram-gradient: linear-gradient(45deg,
+#f09433 0%, #e6683c 25%, #dc2743 50%,
+#cc2366 75%, #bc1888 100%);
