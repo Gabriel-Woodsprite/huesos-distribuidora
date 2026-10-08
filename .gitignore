@@ -1,5 +1,5 @@
 node_modules
 .env
 /vendor/
-public/build
-public/storage
+/public/build
+/public/storage
