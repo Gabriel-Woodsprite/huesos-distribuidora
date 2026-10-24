@@ -1,3 +1,7 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:color';
+
 /* ===================================================
    DISTRIBUCIÓN SECCIÓN COBERTURA - MOBILE FIRST
    =================================================== */
@@ -5,19 +9,39 @@
 .cobertura-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 4rem 1.25rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 
   /* Encabezado de Sección */
   .section-title {
     text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
     margin-bottom: 2.5rem;
-    border: 1px dashed #888; // Referencia visual
-    padding: 1.5rem;
 
     h2 {
       margin-top: 0;
       font-size: 2rem;
       margin-bottom: 0.75rem;
+      color: $text-heading;
+      font-family: $font-heading;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 3px;
+        background-color: $brand-primary;
+        border-radius: 2px;
+      }
     }
 
     p {
@@ -25,6 +49,8 @@
       max-width: 700px;
       margin-left: auto;
       margin-right: auto;
+      color: $text-main;
+      line-height: 1.6;
     }
   }
 
@@ -42,83 +68,365 @@
     gap: 1.25rem;
 
     .cobertura-card {
-      border: 1px solid #000;
-      border-left-width: 5px; // Acento lateral de color
+      background-color: #ffffff;
+      border: 1.5px solid $c-black;
+      border-left-width: 5px;
+      border-radius: 1rem;
       padding: 1.25rem 1.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.07);
+      }
 
       h3 {
         margin: 0;
         font-size: 1.2rem;
+        color: $text-heading;
+        font-family: $font-heading;
       }
 
       p {
         margin: 0;
         font-size: 0.95rem;
         line-height: 1.5;
+        color: $text-main;
       }
 
-      /* Variantes de color en borde izquierdo */
       &.card-regional {
-        border-left-color: #909091;
+        border-left-color: $brand-primary;
       }
 
       &.card-nacional {
-        border-left-color: #909091;
+        border-left-color: color.scale($brand-accent, $lightness: 15%);
       }
 
       &.card-mayoristas {
-        border-left-color: #909091;
+        border-left-color: $brand-primary;
       }
     }
 
     .cobertura-cta {
       padding-top: 0.5rem;
 
+      /* Botón de WhatsApp unificado */
       .btn-whatsapp {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         width: 100%;
-        padding: 0.85rem 1.5rem;
-        font-weight: bold;
+        gap: 0.75rem;
+        font-family: $font-heading;
+        font-size: 0.95rem;
+        font-weight: $fw-semibold;
+        padding: 0.85rem 2rem;
+        border-radius: 50rem;
         text-decoration: none;
-        border: 1px solid #000;
-        gap: 0.5rem;
+        cursor: pointer;
+        box-sizing: border-box;
+        background-color: #1FAF54;
+        color: #ffffff;
+        border: 2px solid #1FAF54;
+        box-shadow: 0 4px 12px rgba(31, 175, 84, 0.2);
+        transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 
-        .icono-svg {
+        svg {
           width: 20px;
           height: 20px;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover {
+          background-color: color.scale(#1FAF54, $lightness: -8%);
+          border-color: color.scale(#1FAF54, $lightness: -8%);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 18px rgba(31, 175, 84, 0.3);
+
+          svg {
+            transform: scale(1.1);
+          }
+        }
+
+        &:active {
+          transform: translateY(0);
         }
       }
     }
   }
 
-  /* Contenedor del Mapa */
+  /* Mapa de Cobertura y Sede */
   .cobertura-mapa {
-    border: 1px solid #000;
-    padding: 1.25rem;
+    background-color: #ffffff;
+    border: 2.5px dashed $c-black;
+    border-radius: 1.25rem;
+    padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
 
     h3 {
       margin: 0;
       font-size: 1.2rem;
+      color: $text-heading;
+      font-family: $font-heading;
     }
 
-    .mapa-contenedor {
+    .mapa-contenedor.mapa-conceptual {
       width: 100%;
-      height: 320px;
-      border: 1px dashed #888;
+      height: 400px;
+      background:
+        radial-gradient(rgba(255, 255, 255, 0.55) 1.2px, transparent 1.6px) 0 0 / 20px 20px,
+        linear-gradient(135deg,
+          color.scale($brand-accent, $lightness: 52%) 0%,
+          color.scale($brand-accent, $lightness: 44%) 100%);
+      border-radius: 0.85rem;
       overflow: hidden;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.25rem 1rem;
+      box-sizing: border-box;
 
-      iframe {
+      /* ---------- MAPA DE MÉXICO ---------- */
+      .svg-mexico {
+        flex: 1;
+        min-height: 0;
         width: 100%;
-        height: 100%;
+        overflow: visible;
+
+        .stop-a { stop-color: #ffffff; }
+        .stop-b { stop-color: color.scale($brand-primary, $lightness: 88%); }
+        .mx-punto-textura { fill: $brand-primary; opacity: 0.18; }
+
+        .mx-sombra {
+          fill: color.scale($brand-primary, $lightness: -35%);
+          opacity: 0.28;
+        }
+
+        .mx-silueta {
+          fill: url(#mxFill);
+          stroke: $c-black;
+          stroke-width: 1.5;
+          stroke-linejoin: round;
+        }
+
+        .mx-textura {
+          fill: url(#mxDots);
+          stroke: none;
+        }
+
+        .mx-rutas use {
+          stroke: $brand-primary;
+          stroke-width: 1.8;
+          stroke-linecap: round;
+          stroke-dasharray: 5 6;
+          opacity: 0.8;
+          animation: flujoRuta 1.6s linear infinite;
+        }
+
+        .mx-paquetes circle {
+          fill: $c-black;
+          stroke: #ffffff;
+          stroke-width: 1.2;
+        }
+
+        .mx-ciudades {
+          .aro {
+            fill: #ffffff;
+            stroke: $brand-primary;
+            stroke-width: 2;
+          }
+
+          .nucleo {
+            fill: $brand-primary;
+          }
+        }
+
+        .lbl {
+          font-family: $font-heading;
+          font-size: 14px;
+          font-weight: 600;
+          fill: $text-heading;
+          paint-order: stroke;
+          stroke: #ffffff;
+          stroke-width: 3.5px;
+          stroke-linejoin: round;
+          pointer-events: none;
+
+          &.lbl--sede {
+            font-size: 15px;
+            font-weight: 800;
+            fill: $brand-accent;
+          }
+        }
+
+        .mx-sede {
+          .punto {
+            fill: $brand-accent;
+            stroke: #ffffff;
+            stroke-width: 3;
+          }
+
+          .pulso {
+            fill: none;
+            stroke: $brand-accent;
+            stroke-width: 2;
+            transform-box: fill-box;
+            transform-origin: center;
+            animation: pulsoMapa 2s ease-out infinite;
+          }
+        }
+
+        /* Móvil: solo etiquetas principales y más grandes */
+        @media (max-width: 600px) {
+          .lbl {
+            font-size: 20px;
+            stroke-width: 4.5px;
+          }
+
+          .lbl--sec {
+            display: none;
+          }
+        }
       }
+
+      /* ---------- Insignia de Sede en Toluca ---------- */
+      .sede-badge {
+        position: relative;
+        z-index: 2;
+        background-color: #ffffff;
+        border: 1.5px solid $c-black;
+        padding: 0.6rem 1.1rem;
+        border-radius: 50rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+
+        .sede-punto-pulsante {
+          width: 12px;
+          height: 12px;
+          background-color: $brand-accent;
+          border-radius: 50%;
+          position: relative;
+
+          &::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border: 2px solid $brand-accent;
+            border-radius: 50%;
+            animation: pulsoSede 2s infinite;
+          }
+        }
+
+        .sede-info {
+          display: flex;
+          flex-direction: column;
+
+          .sede-etiqueta {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: $text-main;
+            font-weight: $fw-semibold;
+          }
+
+          .sede-ciudad {
+            font-family: $font-heading;
+            font-size: 0.9rem;
+            color: $text-heading;
+            font-weight: bold;
+          }
+        }
+      }
+
+      /* ---------- Banner inferior de Cobertura Nacional ---------- */
+      .cobertura-nacional-banner {
+        position: relative;
+        z-index: 2;
+        background-color: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        padding: 0.65rem 1.1rem;
+        border-radius: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        font-size: 0.9rem;
+        color: $text-heading;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+        max-width: 95%;
+        text-align: center;
+
+        svg {
+          color: $brand-primary;
+          flex-shrink: 0;
+        }
+
+        strong {
+          font-family: $font-heading;
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+}
+
+/* ===================================================
+   ANIMACIONES
+   =================================================== */
+
+@keyframes pulsoSede {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes flujoRuta {
+  to {
+    stroke-dashoffset: -22;
+  }
+}
+
+@keyframes pulsoMapa {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cobertura-section {
+    .mx-rutas use,
+    .mx-sede .pulso,
+    .sede-punto-pulsante::after {
+      animation: none !important;
+    }
+
+    .mx-paquetes {
+      display: none;
     }
   }
 }
@@ -151,7 +459,7 @@
       height: 100%;
       box-sizing: border-box;
 
-      .mapa-contenedor {
+      .mapa-contenedor.mapa-conceptual {
         height: 100%;
         min-height: 350px;
       }

@@ -1,8 +1,14 @@
 <footer class="pie-pagina">
 	<div class="footer-contenido">
-		<!-- Columna 1: Marca e información de contacto -->
-		<div class="footer-bloque">
-			<h3>Huesos — Distribuidora Veterinaria</h3>
+		<!-- Columna 1: Marca, Logo e información de contacto -->
+		<div class="footer-bloque footer-marca">
+			<div class="footer-logo-container">
+				<img src="build/img/logo/logo.svg" alt="Logo Huesos" class="footer-logo">
+				<div class="footer-brand-text">
+					<h3>Huesos</h3>
+					<span class="footer-subbrand">Distribuidora Veterinaria</span>
+				</div>
+			</div>
 			<p>Aliados estratégicos en salud animal.</p>
 
 			<address>
