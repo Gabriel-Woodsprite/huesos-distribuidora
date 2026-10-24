@@ -1,34 +1,87 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:color';
+
 /* ===================================================
-   DISTRIBUCIÓN FOOTER - MOBILE FIRST
+   DISTRIBUCIÓN FOOTER - MODERNO E INTEGRADO
    =================================================== */
 
 .pie-pagina {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem 1.5rem 1.5rem;
-  border-top: 1px solid #000; 
+  width: calc(100% - 2.5rem); /* Asegura que respete los 1.25rem de margen a cada lado en móvil */
+  margin: 3rem auto 2rem;     /* 'auto' a la izquierda y derecha lo centra perfectamente como el resto de secciones */
+  padding: 3rem 1.25rem 1.75rem;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  border-radius: 1.75rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  border: 4px dashed $c-black;
 
   .footer-contenido {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
   }
 
   .footer-bloque {
-    border: 1px dashed #888;
-    padding: 1.25rem;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.85rem;
+
+    /* Estilo para el contenedor del Logo en la primera columna */
+    &.footer-marca {
+      .footer-logo-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.25rem;
+
+        .footer-logo {
+          width: 38px;
+          height: 38px;
+          object-fit: contain;
+        }
+
+        .footer-brand-text {
+          display: flex;
+          flex-direction: column;
+
+          h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-family: $font-heading;
+            color: $text-heading;
+            font-weight: $fw-bold;
+            line-height: 1.2;
+            &::after { display: none; }
+          }
+
+          .footer-subbrand {
+            font-size: 0.78rem;
+            color: $text-main;
+            font-weight: $fw-semibold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0.8;
+          }
+        }
+      }
+    }
 
     h3 {
       margin: 0;
       font-size: 1.1rem;
+      font-family: $font-heading;
+      color: $text-heading;
+      font-weight: $fw-bold;
     }
 
     p, address, ul:not(.redes-sociales) {
       margin: 0;
       padding: 0;
+      font-size: 0.92rem;
+      color: $text-main;
+      line-height: 1.6;
     }
 
     address {
@@ -36,32 +89,84 @@
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
+
+      a {
+        color: $brand-accent;
+        text-decoration: none;
+        font-weight: $fw-semibold;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: color.scale($brand-accent, $lightness: -15%);
+          text-decoration: underline;
+        }
+      }
     }
 
     ul:not(.redes-sociales) {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.6rem;
+
+      li a {
+        color: $text-main;
+        text-decoration: none;
+        font-size: 0.92rem;
+        transition: color 0.2s ease, transform 0.2s ease;
+        display: inline-block;
+
+        &:hover {
+          color: $brand-primary;
+          transform: translateX(3px);
+        }
+      }
+    }
+
+    /* Redes sociales */
+    .redes-sociales {
+      list-style: none;
+      display: flex;
+      gap: 0.75rem;
+      padding: 0;
+      margin-top: 0.5rem;
+
+      .red-social {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        .icono-svg {
+          width: 22px;
+          height: 22px;
+        }
+      }
     }
   }
 
-  /* Pie inferior: Copyright y aviso legal */
+  /* Pie inferior: Copyright y aviso legal integrado */
   .footer-copyright {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #ccc;
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     text-align: center;
+    color: $text-main;
 
     .legal-notice {
-      margin: 0 auto 0.75rem auto;
-      max-width: 850px;
-      line-height: 1.4;
-      opacity: 0.8;
+      margin: 0 auto;
+      max-width: 900px;
+      line-height: 1.5;
+      font-size: 0.8rem;
+      opacity: 0.75;
     }
 
     small {
       display: block;
+      font-size: 0.85rem;
+      color: $text-main;
     }
   }
 }
@@ -72,23 +177,20 @@
 
 @media (min-width: 1024px) {
   .pie-pagina {
-    padding: 4rem 2rem 2rem 2rem;
+    width: 100%;
+    padding: 3.5rem 3rem 1.75rem;
 
     .footer-contenido {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 2.5rem;
+      grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 3.5rem;
       align-items: start;
-    }
-
-    .footer-bloque {
-      padding: 1rem;
-      height: 100%;
-      box-sizing: border-box;
     }
 
     .footer-copyright {
       margin-top: 3rem;
+      flex-direction: column;
+      justify-content: center;
     }
   }
 }

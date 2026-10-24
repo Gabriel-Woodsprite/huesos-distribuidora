@@ -4,7 +4,7 @@
 $bp-tablet: 768px;
 $bp-desktop: 1024px;
 
-/* --------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------- */
 
 /* ===================================================
    VARIABLES DE TIPOGRAFÍA
@@ -29,23 +29,23 @@ $font-size-xl: 1.35rem;   // 21.6px (Títulos h3)
 $font-size-2xl: 1.75rem;  // 28px (Títulos h2 en móvil)
 $font-size-3xl: 2.25rem;  // 36px (Títulos h2 en escritorio / Hero)
 
-/* --------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------- */
 
 /* ===================================================
-   VARIABLES DE COLOR 
-   =================================================== */
+VARIABLES DE COLOR 
+=================================================== */
 
 // 1. PALETA DE MARCA
-$c-cream:            #F7DFC7;
+$c-cream:            #fceddf;
 $c-gold:             #F2B55D;
 $c-amber:            #D98408;
 $c-teal:             #5B9891;
 
 // Soporte Neutro
-$c-white:            #ffffff;
-$c-dark:             #1e293b;
+$c-white:           #ffffff;
+$c-dark:            #1e293b;
 $c-gray:            #64748b;
-
+$c-black:           #0f0f0f;
 // 2. USO SEMÁNTICO
 $brand-primary:      $c-amber;   // Botones principales, enlaces e interacción
 $brand-secondary:    $c-gold;    // Hovers, badges, destacados secundarios
@@ -68,3 +68,6 @@ $facebook-color:     #1877f2;    // Azul oficial de Facebook
 $instagram-gradient: linear-gradient(45deg,
 #f09433 0%, #e6683c 25%, #dc2743 50%,
 #cc2366 75%, #bc1888 100%);
+$pdf-color:          #D32F2F;
+
+/* ---------------------------------------------------------------------------------------------------------- */

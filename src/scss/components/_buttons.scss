@@ -1,0 +1,203 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:color';
+
+/* ===================================================
+   COMPONENTE: BOTÓN MINIMALISTA / ENLACE INTERACTIVO
+   =================================================== */
+
+.btn-enlace {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: $font-heading;
+  font-size: 0.9rem;
+  font-weight: $fw-semibold;
+  color: $brand-accent; 
+  text-decoration: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem 0;
+  position: relative;
+  transition: color 0.25s ease, transform 0.25s ease;
+
+  &::after {
+    content: '→';
+    display: inline-block;
+    transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: currentColor;
+    opacity: 0.4;
+    transition: opacity 0.25s ease;
+  }
+
+  &:hover {
+    color: color.scale($brand-accent, $lightness: -12%);
+    transform: translateX(2px); 
+
+    &::after {
+      transform: translateX(4px); 
+    }
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &:active {
+    transform: translateX(0);
+  }
+}
+
+/* ===================================================
+   SISTEMA GLOBAL DE BOTONES (.btn y variantes) - MOBILE FIRST
+   =================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: $font-heading;
+  font-size: 0.88rem; /* Tamaño más cómodo y compacto en móviles */
+  font-weight: $fw-semibold;
+  padding: 0.65rem 1.25rem; /* Padding reducido para evitar que se vean gigantes en celular */
+  border-radius: 50rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%; /* Por defecto en móvil ocupan el ancho disponible o se adaptan */
+  max-width: 280px; /* Evita que crezcan demasiado en contenedores móviles amplios */
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* 1. Botón Principal (Ej. Enviar mensaje del formulario) */
+  &.btn--principal, &:not(.btn--secundario):not(.btn--whatsapp):not(.btn--correo) {
+    background-color: $brand-primary;
+    color: $text-inverse;
+    border: 2px solid $brand-primary;
+    box-shadow: 0 4px 15px rgba($brand-primary, 0.25);
+
+    &:hover {
+      background-color: color.scale($brand-primary, $lightness: -8%);
+      border-color: color.scale($brand-primary, $lightness: -8%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba($brand-primary, 0.35);
+    }
+  }
+
+  /* 2. Botón Secundario (Descargar Catálogo PDF) */
+  &.btn--secundario {
+    background-color: $c-white;
+    color: $text-heading;
+    border: 2px solid $c-black;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+    .btn__icon-pdf {
+      transition: transform 0.3s ease;
+      
+      path, polyline {
+        stroke: $pdf-color;
+        transition: stroke 0.3s ease;
+      }
+    }
+
+    &:hover {
+      background-color: rgba($pdf-color, 0.06);
+      border-color: $pdf-color;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+
+      .btn__icon-pdf {
+        transform: scale(1.1);
+        
+        path, polyline {
+          stroke: $pdf-color;
+        }
+      }
+    }
+  }
+
+  /* 3. Botón WhatsApp */
+  &.btn--whatsapp {
+    background-color: $whatsapp-color;
+    color: $c-white;
+    border: 2px solid $whatsapp-color;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+
+    svg {
+      transition: transform 0.3s ease;
+    }
+
+    &:hover {
+      background-color: color.scale($whatsapp-color, $lightness: -8%);
+      border-color: color.scale($whatsapp-color, $lightness: -8%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 211, 102, 0.3);
+
+      svg {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  /* 4. Botón Correo / Gmail */
+  &.btn--correo {
+    background-color: $c-white;
+    color: $text-heading;
+    border: 2px solid $c-black;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+
+    .btn__icon-correo {
+      transition: transform 0.3s ease;
+
+      path, polyline {
+        stroke: $pdf-color;
+        transition: stroke 0.3s ease;
+      }
+    }
+
+    &:hover {
+      background-color: rgba($pdf-color, 0.06);
+      border-color: $pdf-color;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+
+      .btn__icon-correo {
+        transform: scale(1.1);
+
+        path, polyline {
+          stroke: $pdf-color;
+        }
+      }
+    }
+  }
+
+  small {
+    font-size: 0.75rem;
+    opacity: 0.7;
+    font-weight: normal;
+  }
+}
+
+/* ===================================================
+   ADAPTACIÓN RESPONSIVA PARA ESCRITORIO (min-width: 768px)
+   =================================================== */
+
+@media (min-width: 768px) {
+  .btn {
+    width: auto; /* En escritorio recuperan su tamaño natural alineado al contenido */
+    max-width: none;
+    font-size: 0.95rem;
+    padding: 0.85rem 2rem; /* El padding completo original para pantallas grandes */
+    gap: 0.75rem;
+  }
+}

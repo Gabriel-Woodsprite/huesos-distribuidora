@@ -1,189 +1,318 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+@use 'sass:color';
+
 /* ===================================================
-   DISTRIBUCIÓN SECCIÓN PRODUCTOS 
+   LAYOUT: SECCIÓN PRODUCTOS (INTEGRADA Y ORGÁNICA)
    =================================================== */
 
 .productos-section {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 3rem 1.5rem;
+  padding: 4rem 1.25rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 
-  .section-title {
+  /* Encabezado */
+  .productos__header {
     text-align: center;
-    margin-bottom: 2.5rem;
-    border: 1px dashed #888; 
-    padding: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
 
     h2 {
-      margin-top: 0;
+      font-family: $font-heading;
       font-size: 2rem;
-      margin-bottom: 0.75rem;
+      color: $text-heading;
+      margin-bottom: 0.85rem;
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -6px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 3px;
+        background-color: $brand-primary;
+        border-radius: 2px;
+      }
     }
 
     p {
-      margin-bottom: 0;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 0.95rem;
+      color: $text-main;
+      line-height: 1.6;
+      margin: 0;
     }
   }
 
-  /* 2. Grid de Categorías Principales */
-  .categories-grid {
+  /* Grid de Tarjetas de Categorías */
+  .productos__grid {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-bottom: 3rem;
 
-    .category-card {
-      border: 1px solid #000; 
-      padding: 1.75rem 1.5rem;
+    .producto-card {
+      background-color: #ffffff;
+      border-radius: 1.25rem;
+      padding: 2.25rem 1.5rem;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
       gap: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+      border: 1.5px solid $c-black;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-      .category-icon {
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.07);
+      }
+
+      &__icon {
         width: 60px;
         height: 60px;
-        border: 1px dashed #000;
+        background-color: color.scale($brand-accent, $lightness: 42%);
+        color: $brand-accent;
         display: flex;
         align-items: center;
         justify-content: center;
         border-radius: 50%;
+        margin-bottom: 0.5rem;
+        box-shadow: 0 4px 12px rgba($brand-accent, 0.15);
+        transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+
+        svg {
+          width: 26px;
+          height: 26px;
+          stroke: $brand-accent;
+        }
+      }
+
+      &:hover .producto-card__icon {
+        background-color: $brand-accent;
+        color: #ffffff;
+        transform: scale(1.05);
+
+        svg {
+          stroke: #ffffff;
+        }
       }
 
       h3 {
+        font-family: $font-heading;
+        font-size: 1.2rem;
+        color: $text-heading;
         margin: 0;
-        font-size: 1.25rem;
       }
 
       p {
+        font-size: 0.9rem;
+        color: $text-main;
+        line-height: 1.55;
         margin: 0;
-        font-size: 0.95rem;
-        line-height: 1.5;
       }
     }
   }
 
-  /* 3. Bloque de Laboratorios / Marcas */
-  .brands-wrapper {
-    border: 1px solid #000; 
-    padding: 2rem 1.5rem;
+  /* Bloque de Marcas (Logos escalados ópticamente) */
+  .productos__marcas {
     text-align: center;
-    margin-bottom: 3rem;
+    padding: 1rem 0;
 
     h3 {
-      margin-top: 0;
+      font-family: $font-heading;
       font-size: 1.35rem;
+      color: $text-heading;
+      margin-bottom: 0.5rem;
     }
 
     p {
-      margin-bottom: 1.5rem;
+      font-size: 0.92rem;
+      color: $text-main;
+      margin-bottom: 2rem;
     }
 
-    /* Red de marcas adaptativa  */
-    .brands-grid {
+    .marcas-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1rem;
+      align-items: center;
 
-      .brand-item {
+      .marca-item {
+        background-color: #ffffff;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 0.85rem;
-        border: 1px dashed #888;
-        font-weight: bold;
-        font-size: 0.95rem;
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.85rem;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        height: 85px;
+        box-sizing: border-box;
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+        }
+
+        img {
+          width: auto;
+          height: auto;
+          max-width: 85%;
+          max-height: 50px;
+          object-fit: contain;
+          display: block;
+          margin: 0 auto;
+          transition: transform 0.2s ease;
+        }
+
+        /* Ajustes de escala individuales de marcas */
+        img[src*="Zoetis"] { transform: scale(0.95); }
+        img[src*="Mindray"] { transform: scale(1.65); }
+        img[src*="Virbac"] { transform: scale(1.6); }
+        img[src*="Lapisa"] { transform: scale(1.1) translateY(4px); }
+        img[src*="DiprofaQ"] {
+          transform: scale(2.2);
+          filter: brightness(0) saturate(100%) invert(21%) sepia(85%) saturate(3021%) hue-rotate(346deg) brightness(91%) contrast(92%);
+        }
+        img[src*="Vetoquinol"] { transform: scale(1.05); }
       }
     }
   }
 
-  /* 4. Llamado a la Acción (CTA Catálogo y Cotización) */
-  .catalog-cta {
-    border: 1px solid #000;
-    padding: 2.5rem 1.5rem;
+  /* Bloque CTA */
+  .productos__cta {
+    background-color: #ffffff;
+    border: 4px dashed $c-black;
+    border-radius: 1.75rem;
+    padding: 3rem 2rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
 
-    h3 {
-      margin-top: 0;
-      font-size: 1.35rem;
+    /* Huellitas decorativas flotantes (Visibilidad equilibrada en móvil: 0.55) */
+    .huella-decorativa {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      fill: $c-black;
+      opacity: 0.55; 
+      pointer-events: none;
+      z-index: 0;
+      transition: opacity 0.3s ease;
+
+      &.h-1 { top: 12%; left: 6%; transform: rotate(-18deg); width: 22px; height: 22px; }
+      &.h-2 { top: 32%; left: 14%; transform: rotate(12deg); width: 26px; height: 26px; }
+      &.h-3 { top: 75%; left: 9%; transform: rotate(-5deg); width: 24px; height: 24px; }
+      &.h-4 { top: 18%; right: 9%; transform: rotate(22deg); width: 28px; height: 28px; }
+      &.h-5 { top: 68%; right: 14%; transform: rotate(-15deg); width: 26px; height: 26px; }
+      &.h-6 { bottom: 15%; right: 25%; transform: rotate(8deg); width: 24px; height: 24px; }
+      &.h-7 { top: 48%; left: 4%; transform: rotate(30deg); width: 20px; height: 20px; }
     }
 
-    p {
-      margin-bottom: 1.5rem;
-      max-width: 650px;
+    h3, p, .productos__cta-botones {
+      position: relative;
+      z-index: 1;
+    }
+
+    h3 {
+      font-family: $font-heading;
+      font-size: 1.4rem;
+      color: $text-heading;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      line-height: 1.4;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* Botones CTA en Móvil (Apilados) */
-    .cta-buttons {
+    p {
+      font-size: 0.95rem;
+      color: $text-main;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .productos__cta-botones {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      align-items: stretch;
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0.85rem 1.5rem;
-        text-decoration: none;
-        border: 1px solid #000;
-        font-weight: bold;
-        text-align: center;
-      }
+      align-items: center;
+      justify-content: center;
     }
   }
 }
 
 /* ===================================================
-   DISTRIBUCIÓN SECCIÓN PRODUCTOS - TABLET / DESKTOP
+   ESCRITORIO (min-width: 768px y 1024px)
    =================================================== */
 
-/* Ajuste intermedio (Tablets: min-width: 768px) */
 @media (min-width: 768px) {
   .productos-section {
-    .brands-wrapper .brands-grid {
-      grid-template-columns: repeat(4, 1fr); 
+    .productos__marcas .marcas-grid {
+      grid-template-columns: repeat(3, 1fr); 
     }
 
-    .catalog-cta .cta-buttons {
-      flex-direction: row; 
-      justify-content: center;
+    .productos__cta {
+      padding: 3.5rem 3rem;
 
-      .btn {
-        min-width: 220px;
+      .huella-decorativa {
+        opacity: 0.8;
+      }
+
+      .productos__cta-botones {
+        flex-direction: row; 
+        gap: 1.5rem;
+        justify-content: center;
       }
     }
   }
 }
 
-/* Ajuste escritorio (Desktop: min-width: 1024px) */
 @media (min-width: 1024px) {
   .productos-section {
-    padding: 4rem 2rem;
+    padding: 6rem 2rem;
+    gap: 5rem;
 
-    .categories-grid {
+    .productos__grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
 
-      .category-card {
-        align-items: flex-start;
-        text-align: left;
-
-        .category-icon {
-          align-self: flex-start;
-        }
+      .producto-card {
+        padding: 2.5rem 2rem;
       }
     }
 
-    .brands-wrapper .brands-grid {
-      grid-template-columns: repeat(7, 1fr);
-      gap: 1.25rem;
+    .productos__marcas {
+      padding: 2rem 0;
+
+      .marcas-grid {
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1rem;
+      }
+    }
+
+    .productos__cta {
+      padding: 4rem 3.5rem;
+
+      /* Completamente visibles en escritorio (1.0) */
+      .huella-decorativa {
+        opacity: 1;
+      }
     }
   }
 }
