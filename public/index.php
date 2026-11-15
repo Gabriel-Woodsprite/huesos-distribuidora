@@ -715,7 +715,7 @@ unset($_SESSION['form_old'], $_SESSION['form_errors']);
 									</div>
 
 									<!-- Botón de Envío -->
-									<button type="submit" class="btn btn--correo">
+									<button type="submit" class="btn btn--correo btn-enviar">
 										<svg class="btn__icon-correo" viewBox="0 0 24 24" width="20" height="20"
 											fill="none" aria-hidden="true">
 											<path
@@ -735,7 +735,7 @@ unset($_SESSION['form_old'], $_SESSION['form_errors']);
 		</section>
 		<?php
 		include 'includes/footer.php'
-			?>
+		?>
 	</main>
 
 	<script src="build/js/main.js"></script>
